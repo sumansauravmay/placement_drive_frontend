@@ -7,17 +7,15 @@ const Infinite = () => {
   const [hasMore, setHasMore] = useState(true);
 
   const getData = () => {
-    fetch(
-      `https://myindiaa-deployement.onrender.com/products?page=2&_limit=10`
-    )
+    fetch(`https://myindiaa-deployement.onrender.com/products?page=${page}&_limit=5`)
       .then((res) => res.json())
       .then((res) => {
         console.log("res-data", res);
-        if (res.length == 0) {
+        if (res.length === 0) {
           setHasMore(false);
-        }else{
+        } else {
           console.log("Fetched data for page:", page, res);
-          setData((prevData)=>[...prevData, ...res])
+          setData((prevData) => [...prevData, ...res]);
         }
       })
       .catch((err) => console.log(err));
@@ -32,7 +30,8 @@ const Infinite = () => {
   };
 
   return (
-    <InfiniteScroll
+    <>
+      <InfiniteScroll
       dataLength={data.length}
       next={fetchData}
       hasMore={hasMore}
@@ -51,7 +50,8 @@ const Infinite = () => {
           <p>{item.description}</p>
         </div>
       ))}
-    </InfiniteScroll>
+      </InfiniteScroll>
+    </>
   );
 };
 
