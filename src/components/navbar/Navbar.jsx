@@ -34,7 +34,6 @@ const Navbar = () => {
     <Link to="/reactmemo">
     <li>Memo</li>
     </Link>
-   
   </ul>
 </nav>
 
