@@ -31,8 +31,10 @@ const Navbar = () => {
     <Link to="/signup">
     <li>Signup</li>
     </Link>
-    
-    <li>Contact</li>
+    <Link to="/reactmemo">
+    <li>Memo</li>
+    </Link>
+   
   </ul>
 </nav>
 
